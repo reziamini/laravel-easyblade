@@ -5,7 +5,7 @@ You can create a simpler and readable view with EasyBlade
 # Install
 
 ```
-composer require aminireza-ir/laravel-easy-blade
+composer require aminireza-ir/laravel-easyblade
 ```
 
 # How to Use
