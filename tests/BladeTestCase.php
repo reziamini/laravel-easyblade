@@ -2,8 +2,6 @@
 
 namespace BladeTest;
 
-
-
 use EasyBlade\EasyBladeServiceProvider;
 use Orchestra\Testbench\TestCase;
 
