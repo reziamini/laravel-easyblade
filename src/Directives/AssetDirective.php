@@ -8,6 +8,6 @@ class AssetDirective implements Directive
 {
     public static function handle($parameter)
     {
-        return "<?php echo route(".$parameter.") ?>";
+        return "<?php echo asset(".$parameter.") ?>";
     }
 }

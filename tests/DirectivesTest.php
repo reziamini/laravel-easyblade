@@ -16,4 +16,9 @@ class DirectivesTest extends BladeTestCase
         $this->assertEquals("<?php echo url('foo') ?>", $this->compiler->compileString("@url('foo')"));
     }
 
+    public function testAssetDirective()
+    {
+        $this->assertEquals("<?php echo asset('foo') ?>", $this->compiler->compileString("@asset('foo')"));
+    }
+
 }
