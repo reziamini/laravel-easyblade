@@ -32,3 +32,7 @@ You can do it by EasyBlade :) !
 - ```@asset('foo')``` Use it instead of ```{{ asset('foo') }}``` 
 - ```@url('foo')``` Use it instead of ```{{ url('foo') }}``` 
 - ```@route('foo')``` Use it instead of ```{{ route('foo') }}``` 
+- ```@isActive('routeName', 'active', 'deactive')``` instead of write lot of code to check current route is equal to route name which passed as string or array
+
+# Features 
+ - You can pass a route name or array of route names as first parameters to```@isActive``` directive , second parameter is a string which you want to echo in view and third parameter is a optional param and it will return a null string if nothing passed , It will be showed when current route is not equal to array or string which passed as first param

@@ -21,4 +21,11 @@ class DirectivesTest extends BladeTestCase
         $this->assertEquals("<?php echo asset('foo') ?>", $this->compiler->compileString("@asset('foo')"));
     }
 
+    public function testisActiveDirective()
+    {
+        $this->assertEquals("<?php echo \\EasyBlade\\Directives\\isActiveDirective::render('foo') ?>", $this->compiler->compileString("@isActive('foo')"));
+        $this->assertEquals("<?php echo \\EasyBlade\\Directives\\isActiveDirective::render(['foo'], 'active') ?>", $this->compiler->compileString("@isActive(['foo'], 'active')"));
+        $this->assertEquals("<?php echo \\EasyBlade\\Directives\\isActiveDirective::render(['foo'], 'active', null) ?>", $this->compiler->compileString("@isActive(['foo'], 'active', null)"));
+    }
+
 }
