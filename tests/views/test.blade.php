@@ -1,1 +1,0 @@
-@isActive('index', 'active', 'no')
