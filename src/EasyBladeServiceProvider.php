@@ -5,6 +5,8 @@ namespace EasyBlade;
 
 
 use EasyBlade\Directives\AssetDirective;
+use EasyBlade\Directives\CountDirective;
+use EasyBlade\Directives\EndCountDirective;
 use EasyBlade\Directives\isActiveDirective;
 use EasyBlade\Directives\RouteDirective;
 use EasyBlade\Directives\UrlDirective;
@@ -19,9 +21,16 @@ class EasyBladeServiceProvider extends ServiceProvider
         'url' => UrlDirective::class,
         'asset' => AssetDirective::class,
         'isActive' => isActiveDirective::class,
+        'count' => CountDirective::class,
+        'endcount' => EndCountDirective::class,
     ];
 
     public function boot()
+    {
+        $this->registerDirectives();
+    }
+
+    public function registerDirectives()
     {
         foreach (static::directives as $directive => $class) {
             Blade::directive($directive, [$class, 'handle']);
