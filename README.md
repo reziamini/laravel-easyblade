@@ -33,6 +33,38 @@ You can do it by EasyBlade :) !
 - ```@url('foo')``` Use it instead of ```{{ url('foo') }}``` 
 - ```@route('foo')``` Use it instead of ```{{ route('foo') }}``` 
 - ```@isActive('routeName', 'active', 'deactive')``` instead of write lot of code to check current route is equal to route name which passed as string or array
+- ```@count(array|collection, number )``` instead of write lot of code to check count of collection or array is equal or greater than your number which passed to second param.
 
-# Features 
+# Features :
  - You can pass a route name or array of route names as first parameters to```@isActive``` directive , second parameter is a string which you want to echo in view and third parameter is a optional param and it will return a null string if nothing passed , It will be showed when current route is not equal to array or string which passed as first param
+ - You can use `@count` directive instead of write lots of if to check count of collection or array is equal or greater than your number which passed to second param.
+ 
+#Examples : 
+
+```blade
+    @count([1, 2, 3], 3)
+        something
+    @endcount
+    // return something because count of array is equal 3
+```
+
+```blade
+    @count([1, 2], 3)
+        true
+    @endcount
+    // return null because count of array is smaler than 3
+```
+
+Imagine current route is : `dashboard.home`
+```blade
+    @isActive('dashboard.home', 'active', 'deactive')
+    // Return : active
+```
+```blade
+    @isActive(['dashboard.home', 'dahboard.profile'], 'active', 'deactive')
+    // Return : active
+```
+```blade
+    @isActive('home', 'active', 'deactive')
+    // Return : deactive
+```
