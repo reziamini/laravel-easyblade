@@ -28,4 +28,22 @@ class DirectivesTest extends BladeTestCase
         $this->assertEquals("<?php echo \\EasyBlade\\Directives\\isActiveDirective::render(['foo'], 'active', null) ?>", $this->compiler->compileString("@isActive(['foo'], 'active', null)"));
     }
 
+    public function testCountDirective()
+    {
+        config()->set('view.paths', [
+            __DIR__.'/views',
+        ]);
+        $array = collect(range(1, 5));
+        $count = 5;
+        $view = view('count', compact('array', 'count'))->render();
+        $this->assertTrue(\Illuminate\Support\Str::contains($view, 'equal or greater'));
+        $this->assertEquals('<?php if(count($collection) >= 1): ?>', $this->compiler->compileString('@count($collection, 1)'));
+        $this->assertEquals('<?php if(count([1, 2, 3, 4]) >= 1): ?>', $this->compiler->compileString('@count([1, 2, 3, 4], 1)'));
+    }
+
+    public function testEndCountDirective()
+    {
+        $this->assertEquals("<?php endif; ?>", $this->compiler->compileString("@endcount"));
+    }
+
 }
