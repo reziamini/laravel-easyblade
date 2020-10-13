@@ -8,7 +8,7 @@ You can create a simpler and readable view with EasyBlade
 composer require aminireza-ir/laravel-easyblade
 ```
 
-# How to Use
+# Usage
 
 Use EasyBlade is too much easy like its name.
 
@@ -27,7 +27,7 @@ and don't use any {{ }} in your blade or don't use any PHP Pure code
 Blade template engine has created to not code PHP Pure , It has created to code easier
 You can do it by EasyBlade :) !
 
-# Current Directive :
+## Current Directive :
 
 - ```@asset('foo')``` Use it instead of ```{{ asset('foo') }}``` 
 - ```@url('foo')``` Use it instead of ```{{ url('foo') }}``` 
@@ -35,11 +35,11 @@ You can do it by EasyBlade :) !
 - ```@isActive('routeName', 'active', 'deactive')``` instead of write lot of code to check current route is equal to route name which passed as string or array
 - ```@count(array|collection, number )``` instead of write lot of code to check count of collection or array is equal or greater than your number which passed to second param.
 
-# Features :
+## Features :
  - You can pass a route name or array of route names as first parameters to```@isActive``` directive , second parameter is a string which you want to echo in view and third parameter is a optional param and it will return a null string if nothing passed , It will be showed when current route is not equal to array or string which passed as first param
  - You can use `@count` directive instead of write lots of if to check count of collection or array is equal or greater than your number which passed to second param.
  
-#Examples : 
+## Examples : 
 
 ```blade
     @count([1, 2, 3], 3)
