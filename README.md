@@ -29,23 +29,24 @@ You can do it by EasyBlade :) !
 
 ## Current Directive :
 
-- ```@asset('foo')``` Use it instead of ```{{ asset('foo') }}``` 
-- ```@url('foo')``` Use it instead of ```{{ url('foo') }}``` 
-- ```@route('foo')``` Use it instead of ```{{ route('foo') }}``` 
-- ```@isActive('routeName', 'active', 'deactive')``` instead of write lot of code to check current route is equal to route name which passed as string or array
-- ```@count(array|collection, number )``` instead of write lot of code to check count of collection or array is equal or greater than your number which passed to second param.
+- ```@asset('foo')``` 
+- ```@url('foo')``` 
+- ```@route('foo')``` 
+- ```@isActive('routeName', 'active', 'deactive')``` 
+- ```@count(array|collection, number )``` 
+- ```@user(attr)```
 
 ## Features :
  - You can pass a route name or array of route names as first parameters to```@isActive``` directive , second parameter is a string which you want to echo in view and third parameter is a optional param and it will return a null string if nothing passed , It will be showed when current route is not equal to array or string which passed as first param
  - You can use `@count` directive instead of write lots of if to check count of collection or array is equal or greater than your number which passed to second param.
  
 ## Examples : 
-
+- `@count`
 ```blade
     @count([1, 2, 3], 3)
         something
     @endcount
-    // return something because count of array is equal 3
+    // return `something` because count of array is equal 3
 ```
 
 ```blade
@@ -55,7 +56,7 @@ You can do it by EasyBlade :) !
     // return null because count of array is smaler than 3
 ```
 
-Imagine current route is : `dashboard.home`
+- `@isActive` Imagine current route is : `dashboard.home`
 ```blade
     @isActive('dashboard.home', 'active', 'deactive')
     // Return : active
@@ -67,4 +68,32 @@ Imagine current route is : `dashboard.home`
 ```blade
     @isActive('home', 'active', 'deactive')
     // Return : deactive
+```
+
+- `@asset` 
+```blade
+    @asset('img/header.png')
+    
+    // Return : http://127.0.0.1/img/header.png (Like asset() helper )
+```
+- `@route` 
+```blade
+    @route('dashboard')
+    
+    // Return : http://127.0.0.1/dashboard (Like route('routeName') helper )
+```
+
+- `@url` 
+```blade
+    @url('/home')
+    
+    // Return : http://127.0.0.1/home (Like url('address') helper )
+```
+
+- `@user` 
+```blade
+    @user('name')
+    
+   // It will run auth()->user()->name and return user's name
+   // Note : before use it check user is logined or not
 ```
