@@ -10,6 +10,7 @@ use EasyBlade\Directives\EndCountDirective;
 use EasyBlade\Directives\isActiveDirective;
 use EasyBlade\Directives\RouteDirective;
 use EasyBlade\Directives\UrlDirective;
+use EasyBlade\Directives\UserDirective;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
@@ -23,6 +24,7 @@ class EasyBladeServiceProvider extends ServiceProvider
         'isActive' => isActiveDirective::class,
         'count' => CountDirective::class,
         'endcount' => EndCountDirective::class,
+        'user' => UserDirective::class,
     ];
 
     public function boot()
