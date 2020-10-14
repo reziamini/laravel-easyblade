@@ -46,4 +46,9 @@ class DirectivesTest extends BladeTestCase
         $this->assertEquals("<?php endif; ?>", $this->compiler->compileString("@endcount"));
     }
 
+    public function testUserDirective()
+    {
+        $this->assertEquals("<?php echo \auth()->user()->name; ?>", $this->compiler->compileString("@user('name')"));
+    }
+
 }
