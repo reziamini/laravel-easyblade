@@ -48,7 +48,7 @@ class DirectivesTest extends BladeTestCase
 
     public function testUserDirective()
     {
-        $this->assertEquals("<?php echo \auth()->user()->name; ?>", $this->compiler->compileString("@user('name')"));
+        $this->assertEquals("<?php if(\auth()->check()): echo \auth()->user()->name; endif; ?>", $this->compiler->compileString("@user('name')"));
     }
 
 }
