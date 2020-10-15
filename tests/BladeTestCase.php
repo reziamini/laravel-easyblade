@@ -14,6 +14,10 @@ abstract class BladeTestCase extends TestCase
     {
         parent::setUp();
 
+        config()->set('view.paths', [
+            __DIR__.'/views',
+        ]);
+
         $this->compiler = app('blade.compiler');
     }
 

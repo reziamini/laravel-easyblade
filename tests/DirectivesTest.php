@@ -2,6 +2,8 @@
 
 
 use BladeTest\BladeTestCase;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class DirectivesTest extends BladeTestCase
 {
@@ -30,13 +32,10 @@ class DirectivesTest extends BladeTestCase
 
     public function testCountDirective()
     {
-        config()->set('view.paths', [
-            __DIR__.'/views',
-        ]);
         $array = collect(range(1, 5));
         $count = 5;
         $view = view('count', compact('array', 'count'))->render();
-        $this->assertTrue(\Illuminate\Support\Str::contains($view, 'equal or greater'));
+        $this->assertTrue(Str::contains($view, 'equal or greater'));
         $this->assertEquals('<?php if(count($collection) >= 1): ?>', $this->compiler->compileString('@count($collection, 1)'));
         $this->assertEquals('<?php if(count([1, 2, 3, 4]) >= 1): ?>', $this->compiler->compileString('@count([1, 2, 3, 4], 1)'));
     }
@@ -49,6 +48,31 @@ class DirectivesTest extends BladeTestCase
     public function testUserDirective()
     {
         $this->assertEquals("<?php if(\auth()->check()): echo \auth()->user()->name; endif; ?>", $this->compiler->compileString("@user('name')"));
+    }
+
+    public function testUserDirectiveWhenUserLoggedIn()
+    {
+        Auth::shouldReceive('check')
+            ->once()
+            ->andReturn(true);
+        Auth::shouldReceive('user')
+            ->once()
+            ->andReturn((object) [
+                'name' => 'reza'
+            ]);
+        $view = view('user')->render();
+        $this->assertEquals($view, 'reza');
+    }
+
+    public function testUserDirectiveWhenUserNotLoggedIn()
+    {
+        Auth::shouldReceive('check')
+            ->once()
+            ->andReturn(false);
+        Auth::shouldReceive('user')
+            ->never();
+        $view = view('user')->render();
+        $this->assertNotEquals($view, 'reza');
     }
 
 }
