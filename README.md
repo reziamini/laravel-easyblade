@@ -95,5 +95,6 @@ You can do it by EasyBlade :) !
     @user('name')
     
    // It will run auth()->user()->name and return user's name
-   // Note : before use it check user is logined or not
+   // You don't need to check user is authenticated or not , it will check by itself
+
 ```
