@@ -35,6 +35,7 @@ You can do it by EasyBlade :) !
 - `@isActive('routeName', 'active', 'deactive')`
 - `@count(array|collection, number )`
 - `@user(attr)`
+- `@sessionExists('name')`
 
 ## Features :
  - You can pass a route name or array of route names as first parameters to```@isActive``` directive , second parameter is a string which you want to echo in view and third parameter is a optional param and it will return a null string if nothing passed , It will be showed when current route is not equal to array or string which passed as first param
@@ -97,4 +98,13 @@ You can do it by EasyBlade :) !
    // It will run auth()->user()->name and return user's name
    // You don't need to check user is authenticated or not , it will check by itself
 
+```
+- `@sessionExists`
+
+```blade
+    @sessionExists('foo')
+        Session Exists
+    @endsessionExists
+    
+    // It will run session()->exists('foo') in a condition
 ```
