@@ -9,6 +9,9 @@ use EasyBlade\Directives\CountDirective;
 use EasyBlade\Directives\EndCountDirective;
 use EasyBlade\Directives\isActiveDirective;
 use EasyBlade\Directives\RouteDirective;
+use EasyBlade\Directives\SessionDirective;
+use EasyBlade\Directives\EndSessionDirective;
+use EasyBlade\Directives\SessionExistsDirective;
 use EasyBlade\Directives\UrlDirective;
 use EasyBlade\Directives\UserDirective;
 use Illuminate\Support\Facades\Blade;
@@ -25,6 +28,8 @@ class EasyBladeServiceProvider extends ServiceProvider
         'count' => CountDirective::class,
         'endcount' => EndCountDirective::class,
         'user' => UserDirective::class,
+        'sessionExists' => SessionExistsDirective::class,
+        'endsession' => EndSessionDirective::class,
     ];
 
     public function boot()
