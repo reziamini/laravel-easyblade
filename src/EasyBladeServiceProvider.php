@@ -29,7 +29,7 @@ class EasyBladeServiceProvider extends ServiceProvider
         'endcount' => EndCountDirective::class,
         'user' => UserDirective::class,
         'sessionExists' => SessionExistsDirective::class,
-        'endsession' => EndSessionDirective::class,
+        'endsessionExists' => EndSessionDirective::class,
     ];
 
     public function boot()

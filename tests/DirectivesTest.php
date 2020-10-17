@@ -79,4 +79,33 @@ class DirectivesTest extends BladeTestCase
         $this->assertNotEquals($view, 'reza');
     }
 
+    public function testEndSessionExistsDirective()
+    {
+        $this->assertEquals("<?php endif; ?>", $this->compiler->compileString("@endsessionExists"));
+    }
+
+    public function testSessionExistsDirectiveStyle()
+    {
+        $this->assertEquals("<?php if(session()->exists('foo')): ?>", $this->compiler->compileString("@sessionExists('foo')"));
+    }
+
+    public function testSessionExistsDirective()
+    {
+        // When session exists ...
+        \Illuminate\Support\Facades\Session::shouldReceive('exists')
+            ->once()
+            ->with('foo')
+            ->andReturn(true);
+        $view = view('sessionExists')->render();
+        $this->assertTrue(Str::contains($view, 'exists'));
+
+        // When session does not exist ...
+        \Illuminate\Support\Facades\Session::shouldReceive('exists')
+            ->once()
+            ->with('foo')
+            ->andReturn(false);
+        $view = view('sessionExists')->render();
+        $this->assertFalse(Str::contains($view, 'exists'));
+    }
+
 }
