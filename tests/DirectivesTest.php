@@ -3,6 +3,7 @@
 
 use BladeTest\BladeTestCase;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
 class DirectivesTest extends BladeTestCase
@@ -92,7 +93,7 @@ class DirectivesTest extends BladeTestCase
     public function testSessionExistsDirective()
     {
         // When session exists ...
-        \Illuminate\Support\Facades\Session::shouldReceive('exists')
+        Session::shouldReceive('exists')
             ->once()
             ->with('foo')
             ->andReturn(true);
@@ -100,12 +101,43 @@ class DirectivesTest extends BladeTestCase
         $this->assertTrue(Str::contains($view, 'exists'));
 
         // When session does not exist ...
-        \Illuminate\Support\Facades\Session::shouldReceive('exists')
+        Session::shouldReceive('exists')
             ->once()
             ->with('foo')
             ->andReturn(false);
         $view = view('sessionExists')->render();
         $this->assertFalse(Str::contains($view, 'exists'));
+    }
+
+    public function testSessionDirectiveStyle()
+    {
+        $this->assertEquals("<?php if(\session()->exists('foo')){ echo \session()->get('foo'); } ?>", $this->compiler->compileString("@session('foo')"));
+    }
+
+    public function testSessionDirectiveWorks()
+    {
+        Session::shouldReceive('exists')
+            ->once()
+            ->with('foo')
+            ->andReturn(true);
+        Session::shouldReceive('get')
+            ->once()
+            ->with('foo')
+            ->andReturn('hello');
+        $view = view('session')->render();
+        $this->assertEquals($view, 'hello');
+    }
+
+    public function testSessionDirectiveNotWork()
+    {
+        Session::shouldReceive('exists')
+            ->once()
+            ->with('foo')
+            ->andReturn(false);
+        Session::shouldReceive('get')
+            ->never();
+        $view = view('session')->render();
+        $this->assertEquals($view, '');
     }
 
 }
