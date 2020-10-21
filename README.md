@@ -37,6 +37,7 @@ You can do it by EasyBlade :) !
 - `@user(attr)`
 - `@sessionExists('name')`
 - `@session('name')`
+- `@image('address', 'cssClasses')`
 
 ## Features :
  - You can pass a route name or array of route names as first parameters to```@isActive``` directive , second parameter is a string which you want to echo in view and third parameter is a optional param and it will return a null string if nothing passed , It will be showed when current route is not equal to array or string which passed as first param
@@ -116,4 +117,12 @@ You can do it by EasyBlade :) !
     @session('name')
     
     // First it will check session exists then it will print value of session 
+```
+
+- `@image`
+
+```blade
+    @image('img/img1.png', 'img-fuild rounded-circle')
+    
+    // Return a img tag with http://domain/img/img1.png file and 'img-fuild rounded-circle' class
 ```
