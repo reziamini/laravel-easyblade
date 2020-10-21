@@ -4,14 +4,21 @@
 namespace EasyBlade;
 
 
-use EasyBlade\Directives\{
-    AssetDirective, CountDirective, EndCountDirective, isActiveDirective,
-    RouteDirective, SessionDirective, EndSessionDirective, SessionExistsDirective,
-    UrlDirective, UserDirective
-};
+use EasyBlade\Directives\{AssetDirective,
+    CountDirective,
+    EndCountDirective,
+    ImageDirective,
+    isActiveDirective,
+    RouteDirective,
+    SessionDirective,
+    EndSessionDirective,
+    SessionExistsDirective,
+    UrlDirective,
+    UserDirective};
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
 
 class EasyBladeServiceProvider extends ServiceProvider
 {
@@ -26,7 +33,8 @@ class EasyBladeServiceProvider extends ServiceProvider
         'user' => UserDirective::class,
         'sessionExists' => SessionExistsDirective::class,
         'endsessionExists' => EndSessionDirective::class,
-        'session' => SessionDirective::class
+        'session' => SessionDirective::class,
+        'image' => ImageDirective::class
     ];
 
     public function boot()

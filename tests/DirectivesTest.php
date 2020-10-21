@@ -140,4 +140,11 @@ class DirectivesTest extends BladeTestCase
         $this->assertEquals($view, '');
     }
 
+    public function testImageDirective()
+    {
+        $this->assertEquals("<img src='http://localhost/foo' class='foo'>", $this->compiler->compileString("@image('foo', 'foo')"));
+        $this->assertEquals("<img src='http://localhost/foo' class=''>", $this->compiler->compileString("@image('foo')"));
+        $this->assertEquals("<img src='http://localhost/foo' class='foo bar'>", $this->compiler->compileString("@image('foo', 'foo bar')"));
+    }
+
 }
