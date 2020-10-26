@@ -10,6 +10,7 @@ use EasyBlade\Directives\{AssetDirective,
     ImageDirective,
     isActiveDirective,
     RouteDirective,
+    ScriptDirective,
     SessionDirective,
     EndSessionDirective,
     SessionExistsDirective,
@@ -19,7 +20,6 @@ use EasyBlade\Directives\{AssetDirective,
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Str;
 
 class EasyBladeServiceProvider extends ServiceProvider
 {
@@ -36,7 +36,8 @@ class EasyBladeServiceProvider extends ServiceProvider
         'endsessionExists' => EndSessionDirective::class,
         'session' => SessionDirective::class,
         'image' => ImageDirective::class,
-        'style' => StyleDirective::class
+        'style' => StyleDirective::class,
+        'script' => ScriptDirective::class
     ];
 
     public function boot()
