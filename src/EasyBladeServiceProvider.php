@@ -13,6 +13,7 @@ use EasyBlade\Directives\{AssetDirective,
     SessionDirective,
     EndSessionDirective,
     SessionExistsDirective,
+    StyleDirective,
     UrlDirective,
     UserDirective};
 
@@ -34,7 +35,8 @@ class EasyBladeServiceProvider extends ServiceProvider
         'sessionExists' => SessionExistsDirective::class,
         'endsessionExists' => EndSessionDirective::class,
         'session' => SessionDirective::class,
-        'image' => ImageDirective::class
+        'image' => ImageDirective::class,
+        'style' => StyleDirective::class
     ];
 
     public function boot()

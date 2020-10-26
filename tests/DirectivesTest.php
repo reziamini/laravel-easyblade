@@ -147,4 +147,9 @@ class DirectivesTest extends BladeTestCase
         $this->assertEquals("<img src='http://localhost/foo' class='foo bar'>", $this->compiler->compileString("@image('foo', 'foo bar')"));
     }
 
+    public function testStyleDirective()
+    {
+        $this->assertEquals("<link href='style.css' rel='stylesheet'>", $this->compiler->compileString("@style('style.css')"));
+    }
+
 }
