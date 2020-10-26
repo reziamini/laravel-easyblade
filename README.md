@@ -38,6 +38,8 @@ You can do it by EasyBlade :) !
 - `@sessionExists('name')`
 - `@session('name')`
 - `@image('address', 'cssClasses')`
+- `@style('style.css')`
+- `@script('script.js')`
 
 ## Features :
  - You can pass a route name or array of route names as first parameters to```@isActive``` directive , second parameter is a string which you want to echo in view and third parameter is a optional param and it will return a null string if nothing passed , It will be showed when current route is not equal to array or string which passed as first param
