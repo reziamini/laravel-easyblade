@@ -10,6 +10,7 @@ class StyleDirective implements Directive
     public static function handle($parameter)
     {
         $parameter = str_replace(['"', "'"], null, $parameter);
-        return "<link href='{$parameter}' rel='stylesheet'>";
+        $url = asset($parameter);
+        return "<link href='{$url}' rel='stylesheet'>";
     }
 }
