@@ -149,12 +149,12 @@ class DirectivesTest extends BladeTestCase
 
     public function testStyleDirective()
     {
-        $this->assertEquals("<link href='style.css' rel='stylesheet'>", $this->compiler->compileString("@style('style.css')"));
+        $this->assertEquals("<link href='http://localhost/style.css' rel='stylesheet'>", $this->compiler->compileString("@style('style.css')"));
     }
 
     public function testScriptDirective()
     {
-        $this->assertEquals("<script src='script.js' defer></script>", $this->compiler->compileString("@script('script.js')"));
+        $this->assertEquals("<script src='http://localhost/script.js' defer></script>", $this->compiler->compileString("@script('script.js')"));
     }
 
 }
