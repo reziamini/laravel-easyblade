@@ -10,6 +10,7 @@ class ScriptDirective implements Directive
     public static function handle($parameter)
     {
         $parameter = str_replace(['"', "'"], null, $parameter);
-        return "<script src='{$parameter}' defer></script>";
+        $url = asset($parameter);
+        return "<script src='{$url}' defer></script>";
     }
 }
