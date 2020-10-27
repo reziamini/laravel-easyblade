@@ -5,6 +5,7 @@ namespace EasyBlade;
 
 
 use EasyBlade\Directives\{AssetDirective,
+    ConfigDirective,
     CountDirective,
     EndCountDirective,
     ImageDirective,
@@ -37,7 +38,8 @@ class EasyBladeServiceProvider extends ServiceProvider
         'session' => SessionDirective::class,
         'image' => ImageDirective::class,
         'style' => StyleDirective::class,
-        'script' => ScriptDirective::class
+        'script' => ScriptDirective::class,
+        'config' => ConfigDirective::class
     ];
 
     public function boot()
