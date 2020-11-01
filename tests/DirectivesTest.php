@@ -154,7 +154,8 @@ class DirectivesTest extends BladeTestCase
 
     public function testScriptDirective()
     {
-        $this->assertEquals("<script src='http://localhost/script.js' defer></script>", $this->compiler->compileString("@script('script.js')"));
+        $this->assertEquals("<script src='http://localhost/script.js' defer></script>", $this->compiler->compileString("@script('script.js', true)"));
+        $this->assertEquals("<script src='http://localhost/script.js'></script>", $this->compiler->compileString("@script('script.js')"));
     }
 
     public function testConfigDirectiveStyle()
