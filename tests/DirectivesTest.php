@@ -164,5 +164,13 @@ class DirectivesTest extends BladeTestCase
         $this->assertEquals("<?php echo config('app.name', 'Laravel') ?>", $this->compiler->compileString("@config('app.name', 'Laravel')"));
     }
 
+    public function testConfigDirectiveWork()
+    {
+        config()->set('app.name', 'EasyBlade');
+        $view = view('config')->render();
+        $this->assertTrue(Str::contains($view, 'EasyBlade'));
+        $this->assertTrue(Str::contains($view, 'Laravel'));
+    }
+
 
 }
