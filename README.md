@@ -17,15 +17,14 @@ You can write this code :
 ```html
     <a href="{{ route('home') }}"></a>
 ```
-But We create a simpler way with EasyBlade 
+But We create a easier way with EasyBlade 
 Just write :
 ```html
     <a href="@route('home')"></a>
 ```
-and don't use any {{ }} in your blade or don't use any PHP Pure code
+and don't use any {{ }} in your blade or don't use any PHP pure code
 
-Blade template engine has created to not code PHP Pure , It has created to code easier
-You can do it by EasyBlade :) !
+Blade template engine has created to not code PHP pure, It has created to code easier. You can pass it by EasyBlade
 
 ## Current Directives :
 
