@@ -40,6 +40,7 @@ Blade template engine has created to not code PHP pure, It has created to code e
 - `@style('style.css')`
 - `@script('script.js')`
 - `@config('app.name', 'Laravel')`
+- `@old('name', 'Reza')`
 
 ## Features :
  - You can pass a route name or array of route names as first parameters to```@isActive``` directive , second parameter is a string which you want to echo in view and third parameter is a optional param and it will return a null string if nothing passed , It will be showed when current route is not equal to array or string which passed as first param
@@ -127,4 +128,12 @@ Blade template engine has created to not code PHP pure, It has created to code e
     @image('img/img1.png', 'img-fuild rounded-circle')
     
     // Return a img tag with http://domain/img/img1.png file and 'img-fuild rounded-circle' class
+```
+
+- `@old`
+
+```blade
+    @old('name', $user->name)
+    
+    // Return something like : {{ old('name', $user->name) }}
 ```
