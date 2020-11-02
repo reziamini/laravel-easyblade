@@ -10,6 +10,7 @@ use EasyBlade\Directives\{AssetDirective,
     EndCountDirective,
     ImageDirective,
     isActiveDirective,
+    OldDirective,
     RouteDirective,
     ScriptDirective,
     SessionDirective,
@@ -39,7 +40,8 @@ class EasyBladeServiceProvider extends ServiceProvider
         'image' => ImageDirective::class,
         'style' => StyleDirective::class,
         'script' => ScriptDirective::class,
-        'config' => ConfigDirective::class
+        'config' => ConfigDirective::class,
+        'old' => OldDirective::class
     ];
 
     public function boot()
