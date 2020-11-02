@@ -174,8 +174,8 @@ class DirectivesTest extends BladeTestCase
 
     public function testOldDirectiveWork()
     {
-        $this->assertEquals("<?php echo old('name') ?? '' ?>", $this->compiler->compileString("@old('name')"));
-        $this->assertEquals("<?php echo old('name') ?? 'hello' ?>", $this->compiler->compileString("@old('name', 'hello')"));
+        $this->assertEquals("<?php echo old('name') ?>", $this->compiler->compileString("@old('name')"));
+        $this->assertEquals("<?php echo old('name', 'hello') ?>", $this->compiler->compileString("@old('name', 'hello')"));
     }
 
 }
