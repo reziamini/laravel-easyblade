@@ -19,4 +19,5 @@ class isActiveDirective implements Directive
 
         return (Route::getCurrentRoute()->getName() == $list) ? $type : $else;
     }
+
 }

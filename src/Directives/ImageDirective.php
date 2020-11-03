@@ -13,4 +13,5 @@ class ImageDirective implements Directive
 
         return "<img src='".asset($photo)."' class='$class'>";
     }
+
 }
