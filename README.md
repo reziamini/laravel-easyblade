@@ -1,4 +1,5 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/rezaamini-ir/laravel-easyblade/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/rezaamini-ir/laravel-easyblade/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/rezaamini-ir/laravel-easyblade/badges/build.png?b=master)](https://scrutinizer-ci.com/g/rezaamini-ir/laravel-easyblade/build-status/master)
 
 # laravel EasyBlade
 
