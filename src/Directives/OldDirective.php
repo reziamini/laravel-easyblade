@@ -1,8 +1,6 @@
 <?php
 
-
 namespace EasyBlade\Directives;
-
 
 class OldDirective implements Directive
 {
@@ -11,9 +9,10 @@ class OldDirective implements Directive
         $array = explode(',', $parameter);
         $oldValue = trim($array[0]);
         $secondParam = trim(@$array[1]);
-        if($secondParam){
+        if ($secondParam) {
             return "<?php echo old({$oldValue}, {$secondParam}) ?>";
         }
+
         return "<?php echo old({$oldValue}) ?>";
     }
 }

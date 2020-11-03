@@ -1,6 +1,5 @@
 <?php
 
-
 use BladeTest\BladeTestCase;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -8,7 +7,6 @@ use Illuminate\Support\Str;
 
 class DirectivesTest extends BladeTestCase
 {
-
     public function testRouteDirective()
     {
         $this->assertEquals("<?php echo route('foo') ?>", $this->compiler->compileString("@route('foo')"));
@@ -47,7 +45,7 @@ class DirectivesTest extends BladeTestCase
 
     public function testEndCountDirective()
     {
-        $this->assertEquals("<?php endif; ?>", $this->compiler->compileString("@endcount"));
+        $this->assertEquals('<?php endif; ?>', $this->compiler->compileString('@endcount'));
     }
 
     public function testUserDirective()
@@ -63,7 +61,7 @@ class DirectivesTest extends BladeTestCase
         Auth::shouldReceive('user')
             ->once()
             ->andReturn((object) [
-                'name' => 'reza'
+                'name' => 'reza',
             ]);
         $view = view('user')->render();
         $this->assertEquals($view, 'reza');
@@ -82,7 +80,7 @@ class DirectivesTest extends BladeTestCase
 
     public function testEndSessionExistsDirective()
     {
-        $this->assertEquals("<?php endif; ?>", $this->compiler->compileString("@endsessionExists"));
+        $this->assertEquals('<?php endif; ?>', $this->compiler->compileString('@endsessionExists'));
     }
 
     public function testSessionExistsDirectiveStyle()
@@ -177,5 +175,4 @@ class DirectivesTest extends BladeTestCase
         $this->assertEquals("<?php echo old('name') ?>", $this->compiler->compileString("@old('name')"));
         $this->assertEquals("<?php echo old('name', 'hello') ?>", $this->compiler->compileString("@old('name', 'hello')"));
     }
-
 }

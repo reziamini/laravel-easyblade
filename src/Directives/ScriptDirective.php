@@ -1,21 +1,19 @@
 <?php
 
-
 namespace EasyBlade\Directives;
-
 
 class ScriptDirective implements Directive
 {
-
     public static function handle($parameter)
     {
         $parameter = str_replace(['"', "'"], null, $parameter);
         $array = explode(',', $parameter);
         $url = asset(trim($array[0]));
         $defer = trim(@$array[1]) ?? null;
-        if($defer) {
+        if ($defer) {
             return "<script src='{$url}' defer></script>";
         }
+
         return "<script src='{$url}'></script>";
     }
 }

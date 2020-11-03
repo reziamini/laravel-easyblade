@@ -1,14 +1,9 @@
 <?php
 
-
 namespace EasyBlade\Directives;
-
-
-use Illuminate\Support\Str;
 
 class CountDirective implements Directive
 {
-
     public static function handle($parameter)
     {
         preg_match('/((\[.*?\])|(\$.*))\s?,\s?(\d+)?/', $parameter, $match);
@@ -16,5 +11,4 @@ class CountDirective implements Directive
         [$collection, $count] = [$match[1], $count];
         return "<?php if(count({$collection}) >= {$count}): ?>";
     }
-
 }

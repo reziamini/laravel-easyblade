@@ -24,7 +24,7 @@ abstract class BladeTestCase extends TestCase
     protected function getPackageProviders($app)
     {
         return [
-            EasyBladeServiceProvider::class
+            EasyBladeServiceProvider::class,
         ];
     }
 }
