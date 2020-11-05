@@ -134,9 +134,19 @@ Blade template engine has created to not code PHP pure, It has created to code e
 ```
 
 - `@old`
-
 ```blade
     @old('name', $user->name)
     
     // Return something like : {{ old('name', $user->name) }}
+```
+
+- `@script`
+```blade
+    @script('js/script.js', true)
+    
+    // Return script tag with 'defer' : <script src="http://domain/js/script.js" defer></script>
+      
+    @script('js/script.js', false) // Second parameter is optional
+   
+    // Return : <script src="http://domain/js/script.js"></script>  
 ```
