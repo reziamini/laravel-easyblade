@@ -8,8 +8,10 @@ class ScriptDirective implements Directive
     {
         $parameter = str_replace(['"', "'"], null, $parameter);
         $array = explode(',', $parameter);
-        $url = asset(trim($array[0]));
-        $defer = trim(@$array[1]) ?? null;
+        $secure = trim(@$array[1]) ?? null;
+        $url = asset(trim($array[0]), $secure);
+
+        $defer = trim(@$array[2]) ?? null;
         if ($defer) {
             return "<script src='{$url}' defer></script>";
         }
