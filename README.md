@@ -142,21 +142,15 @@ Blade template engine has created to not code PHP pure, It has created to code e
 
 - `@script`
 ```blade
-    @script('js/script.js', true)
-    // Return script tag with 'https' protocol : <script src="https://domain/js/script.js"></script>
+    @script('/js/script.js')
+    // Return script tag : <script src="/js/script.js"></script>
       
-    @script('js/script.js', false) // Second and third parameter is optional
-    // Return with 'http' protocol : <script src="http://domain/js/script.js"></script>  
-
-    @script('js/script.js', true, true)
-    // Return with 'defer' attribute : <script src="https://domain/js/script.js" defer></script>  
+    @script('/js/script.js', true) // Second and third parameter is optional
+    // Return script tag with defer : <script src="/js/script.js" defer></script>  
 ```
 
 - `@style`
 ```blade
-    @style('css/app.css', true)
-    // Return link tag with 'https' protocol : <link rel="stylesheet" href="https://domain/css/app.css">
-      
-    @style('css/app.css', false)
-    // Return with 'http' protocol : <link rel="stylesheet" href="http://domain/css/app.css">
+    @style('/css/app.css')
+    // Return link tag : <link rel="stylesheet" href="/css/app.css">
 ```
