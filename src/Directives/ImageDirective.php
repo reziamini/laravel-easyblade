@@ -2,7 +2,9 @@
 
 namespace EasyBlade\Directives;
 
-class ImageDirective implements Directive
+use EasyBlade\Contract\Directivable;
+
+class ImageDirective implements Directivable
 {
     public static function handle($parameter)
     {

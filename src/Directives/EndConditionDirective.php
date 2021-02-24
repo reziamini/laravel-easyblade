@@ -2,7 +2,9 @@
 
 namespace EasyBlade\Directives;
 
-class EndConditionDirective implements Directive
+use EasyBlade\Contract\Directivable;
+
+class EndConditionDirective implements Directivable
 {
     public static function handle($parameter)
     {

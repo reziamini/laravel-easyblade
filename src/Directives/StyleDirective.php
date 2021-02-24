@@ -2,7 +2,9 @@
 
 namespace EasyBlade\Directives;
 
-class StyleDirective implements Directive
+use EasyBlade\Contract\Directivable;
+
+class StyleDirective implements Directivable
 {
     public static function handle($parameter)
     {

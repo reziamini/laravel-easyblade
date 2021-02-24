@@ -2,9 +2,10 @@
 
 namespace EasyBlade\Directives;
 
+use EasyBlade\Contract\Directivable;
 use Illuminate\Support\Facades\Route;
 
-class isActiveDirective implements Directive
+class isActiveDirective implements Directivable
 {
     public static function handle($parameter)
     {

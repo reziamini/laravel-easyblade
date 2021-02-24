@@ -2,7 +2,9 @@
 
 namespace EasyBlade\Directives;
 
-class UrlDirective implements Directive
+use EasyBlade\Contract\Directivable;
+
+class UrlDirective implements Directivable
 {
     public static function handle($parameter)
     {

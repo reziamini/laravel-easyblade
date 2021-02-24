@@ -2,7 +2,9 @@
 
 namespace EasyBlade\Directives;
 
-class OldDirective implements Directive
+use EasyBlade\Contract\Directivable;
+
+class OldDirective implements Directivable
 {
     public static function handle($parameter)
     {

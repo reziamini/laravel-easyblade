@@ -2,7 +2,9 @@
 
 namespace EasyBlade\Directives;
 
-class CountDirective implements Directive
+use EasyBlade\Contract\Directivable;
+
+class CountDirective implements Directivable
 {
     public static function handle($parameter)
     {
