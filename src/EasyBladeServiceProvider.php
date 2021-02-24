@@ -2,36 +2,38 @@
 
 namespace EasyBlade;
 
-use EasyBlade\Directives\AssetDirective;
-use EasyBlade\Directives\ConfigDirective;
-use EasyBlade\Directives\CountDirective;
-use EasyBlade\Directives\EndCountDirective;
-use EasyBlade\Directives\EndSessionDirective;
-use EasyBlade\Directives\ImageDirective;
-use EasyBlade\Directives\isActiveDirective;
-use EasyBlade\Directives\OldDirective;
-use EasyBlade\Directives\RouteDirective;
-use EasyBlade\Directives\ScriptDirective;
-use EasyBlade\Directives\SessionDirective;
-use EasyBlade\Directives\SessionExistsDirective;
-use EasyBlade\Directives\StyleDirective;
-use EasyBlade\Directives\UrlDirective;
-use EasyBlade\Directives\UserDirective;
+use EasyBlade\Directives\{
+    OldDirective,
+    UrlDirective,
+    UserDirective,
+    AssetDirective,
+    CountDirective,
+    ImageDirective,
+    RouteDirective,
+    StyleDirective,
+    ConfigDirective,
+    ScriptDirective,
+    SessionDirective,
+    isActiveDirective,
+    EndConditionDirective,
+    SessionExistsDirective
+};
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
+
 class EasyBladeServiceProvider extends ServiceProvider
 {
-    const directives = [
+    const DIRECTIVES = [
         'route'            => RouteDirective::class,
         'url'              => UrlDirective::class,
         'asset'            => AssetDirective::class,
         'isActive'         => isActiveDirective::class,
         'count'            => CountDirective::class,
-        'endcount'         => EndCountDirective::class,
+        'endcount'         => EndConditionDirective::class,
         'user'             => UserDirective::class,
         'sessionExists'    => SessionExistsDirective::class,
-        'endsessionExists' => EndSessionDirective::class,
+        'endsessionExists' => EndConditionDirective::class,
         'session'          => SessionDirective::class,
         'image'            => ImageDirective::class,
         'style'            => StyleDirective::class,
@@ -47,7 +49,7 @@ class EasyBladeServiceProvider extends ServiceProvider
 
     public function registerDirectives()
     {
-        foreach (static::directives as $directive => $class) {
+        foreach (static::DIRECTIVES as $directive => $class) {
             Blade::directive($directive, [$class, 'handle']);
         }
     }

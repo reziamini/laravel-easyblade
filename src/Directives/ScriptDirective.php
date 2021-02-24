@@ -2,7 +2,9 @@
 
 namespace EasyBlade\Directives;
 
-class ScriptDirective implements Directive
+use EasyBlade\Contract\Directivable;
+
+class ScriptDirective implements Directivable
 {
     public static function handle($parameter)
     {
