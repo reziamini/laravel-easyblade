@@ -1,8 +1,8 @@
 <?php
 
-namespace EasyBlade\Directives;
+namespace EasyBlade\Contract;
 
-interface Directive
+interface Directivable
 {
     public static function handle($parameter);
 }
