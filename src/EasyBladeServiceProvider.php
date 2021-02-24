@@ -22,7 +22,7 @@ use EasyBlade\Directives\SessionExistsDirective;
 
 class EasyBladeServiceProvider extends ServiceProvider
 {
-    const directives = [
+    const DIRECTIVES = [
         'route'            => RouteDirective::class,
         'url'              => UrlDirective::class,
         'asset'            => AssetDirective::class,
@@ -47,7 +47,7 @@ class EasyBladeServiceProvider extends ServiceProvider
 
     public function registerDirectives()
     {
-        foreach (static::directives as $directive => $class) {
+        foreach (static::DIRECTIVES as $directive => $class) {
             Blade::directive($directive, [$class, 'handle']);
         }
     }
