@@ -15,9 +15,8 @@ use EasyBlade\Directives\StyleDirective;
 use EasyBlade\Directives\ConfigDirective;
 use EasyBlade\Directives\ScriptDirective;
 use EasyBlade\Directives\SessionDirective;
-use EasyBlade\Directives\EndCountDirective;
 use EasyBlade\Directives\isActiveDirective;
-use EasyBlade\Directives\EndSessionDirective;
+use EasyBlade\Directives\EndConditionDirective;
 use EasyBlade\Directives\SessionExistsDirective;
 
 class EasyBladeServiceProvider extends ServiceProvider
@@ -28,10 +27,10 @@ class EasyBladeServiceProvider extends ServiceProvider
         'asset'            => AssetDirective::class,
         'isActive'         => isActiveDirective::class,
         'count'            => CountDirective::class,
-        'endcount'         => EndCountDirective::class,
+        'endcount'         => EndConditionDirective::class,
         'user'             => UserDirective::class,
         'sessionExists'    => SessionExistsDirective::class,
-        'endsessionExists' => EndSessionDirective::class,
+        'endsessionExists' => EndConditionDirective::class,
         'session'          => SessionDirective::class,
         'image'            => ImageDirective::class,
         'style'            => StyleDirective::class,
