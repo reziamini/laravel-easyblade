@@ -2,23 +2,23 @@
 
 namespace EasyBlade;
 
-use EasyBlade\Directives\AssetDirective;
-use EasyBlade\Directives\ConfigDirective;
-use EasyBlade\Directives\CountDirective;
-use EasyBlade\Directives\EndCountDirective;
-use EasyBlade\Directives\EndSessionDirective;
-use EasyBlade\Directives\ImageDirective;
-use EasyBlade\Directives\isActiveDirective;
+use Illuminate\Support\Facades\Blade;
 use EasyBlade\Directives\OldDirective;
-use EasyBlade\Directives\RouteDirective;
-use EasyBlade\Directives\ScriptDirective;
-use EasyBlade\Directives\SessionDirective;
-use EasyBlade\Directives\SessionExistsDirective;
-use EasyBlade\Directives\StyleDirective;
 use EasyBlade\Directives\UrlDirective;
 use EasyBlade\Directives\UserDirective;
-use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use EasyBlade\Directives\AssetDirective;
+use EasyBlade\Directives\CountDirective;
+use EasyBlade\Directives\ImageDirective;
+use EasyBlade\Directives\RouteDirective;
+use EasyBlade\Directives\StyleDirective;
+use EasyBlade\Directives\ConfigDirective;
+use EasyBlade\Directives\ScriptDirective;
+use EasyBlade\Directives\SessionDirective;
+use EasyBlade\Directives\EndCountDirective;
+use EasyBlade\Directives\isActiveDirective;
+use EasyBlade\Directives\EndSessionDirective;
+use EasyBlade\Directives\SessionExistsDirective;
 
 class EasyBladeServiceProvider extends ServiceProvider
 {
