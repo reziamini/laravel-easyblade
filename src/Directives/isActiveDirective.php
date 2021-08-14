@@ -3,6 +3,7 @@
 namespace EasyBlade\Directives;
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
 
 class isActiveDirective implements Directive
 {
@@ -17,7 +18,7 @@ class isActiveDirective implements Directive
             return (in_array(Route::getCurrentRoute()->getName(), $list)) ? $type : $else;
         }
 
-        return (Route::getCurrentRoute()->getName() == $list) ? $type : $else;
+        return Str::is($list, Route::getCurrentRoute()->getName()) ? $type : $else;
     }
 
 }

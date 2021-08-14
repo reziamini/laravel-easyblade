@@ -26,7 +26,7 @@ class DirectivesTest extends BladeTestCase
     {
         $this->assertEquals("<?php echo \\EasyBlade\\Directives\\isActiveDirective::render('foo') ?>", $this->compiler->compileString("@isActive('foo')"));
         $this->assertEquals("<?php echo \\EasyBlade\\Directives\\isActiveDirective::render(['foo'], 'active') ?>", $this->compiler->compileString("@isActive(['foo'], 'active')"));
-        $this->assertEquals("<?php echo \\EasyBlade\\Directives\\isActiveDirective::render(['foo'], 'active', null) ?>", $this->compiler->compileString("@isActive(['foo'], 'active', null)"));
+        $this->assertEquals("<?php echo \\EasyBlade\\Directives\\isActiveDirective::render('foo.*', 'active') ?>", $this->compiler->compileString("@isActive('foo.*', 'active')"));
     }
 
     public function testCountDirective()
