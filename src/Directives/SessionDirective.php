@@ -2,7 +2,9 @@
 
 namespace EasyBlade\Directives;
 
-class SessionDirective implements Directive
+use EasyBlade\Contract\Directivable;
+
+class SessionDirective implements Directivable
 {
     public static function handle($parameter)
     {

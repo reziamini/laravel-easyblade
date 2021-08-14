@@ -2,7 +2,9 @@
 
 namespace EasyBlade\Directives;
 
-class AssetDirective implements Directive
+use EasyBlade\Contract\Directivable;
+
+class AssetDirective implements Directivable
 {
     public static function handle($parameter)
     {
