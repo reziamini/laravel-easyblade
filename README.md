@@ -3,9 +3,9 @@
 
 # laravel EasyBlade
 
-You can create a simpler and readable view with EasyBlade
+You can create a simpler and more readable view with EasyBlade
 
-# Install
+# Installation
 
 ```
 composer require rezaamini-ir/laravel-easyblade
@@ -13,21 +13,22 @@ composer require rezaamini-ir/laravel-easyblade
 
 # Usage
 
-Use EasyBlade is too much easy like its name.
+Using EasyBlade is, just like its name, super easy!
 
-Imagine you want to write a route URL in a href in Blade
-You can write this code : 
+Imagine that you want to write a route URL in a href in Blade
+You will have to write this code : 
 ```html
     <a href="{{ route('home') }}"></a>
 ```
-But We create a easier way with EasyBlade 
+But by using EasyBlade,
 Just write :
 ```html
     <a href="@route('home')"></a>
 ```
-and don't use any {{ }} in your blade or don't use any PHP pure code
+and don't use "{{ }}" or any pure PHP code
 
-Blade template engine has created to not code PHP pure, It has created to code easier. You can pass it by EasyBlade
+
+Blade template engine was not created for pure PHP code, rather, it was created to code easier. You can pass it by EasyBlade
 
 ## Current Directives :
 
@@ -46,8 +47,8 @@ Blade template engine has created to not code PHP pure, It has created to code e
 - `@old('name', 'Reza')`
 
 ## Features :
- - You can pass a route name or array of route names as first parameters to```@isActive``` directive , second parameter is a string which you want to echo in view and third parameter is a optional param and it will return a null string if nothing passed , It will be showed when current route is not equal to array or string which passed as first param
- - You can use `@count` directive instead of write lots of if to check count of collection or array is equal or greater than your number which passed to second param.
+ - You can pass a route name or array of route names as first parameters to```@isActive``` directive , second parameter is a string which you want to echo in view and third parameter is an optional param and it will return a null string if nothing was passed , It will be showed when the current route is not equal to array or string which passed as first param
+ - You can use `@count` directive instead of writing lots of if statements to check if the count of the collection or array is equal to or greater than your number which was passed to the second param.
  
 ## Examples : 
 - `@count`
