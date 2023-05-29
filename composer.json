@@ -1,6 +1,5 @@
 {
     "name": "rezaamini-ir/laravel-easyblade",
-    "version": "0.6",
     "license": "MIT",
     "description": "Create a easier & readable Blade view with EasyBlade",
     "authors": [
